@@ -1,0 +1,14 @@
+{
+    "siteName": "Douh.Log",
+    "primaryColor": "#4e76eb",
+    "fontTitle": "4",
+    "facebook": "#",
+    "linkedIn": "#",
+    "twitter": "#",
+    "backend": {
+        "protocol": "https",
+        "domain": "posapp.qualityclean-eg.com/pos_backend",
+        "port": "80",
+        "path": "graphql"
+    }
+}
