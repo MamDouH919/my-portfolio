@@ -13,7 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import { styled } from '@mui/material/styles';
 import logo from '../../asset/img/logo.png'
-import { Container, Grid, ListItemIcon } from '@mui/material';
+import { Container, Grid, ListItemIcon, Typography } from '@mui/material';
 // import { Link } from "react-router-dom";
 import clsx from 'clsx';
 import { Link as ScrollLink } from "react-scroll";
@@ -79,10 +79,10 @@ const Root = styled('div')((
         display: "flex",
     },
     [`& .${classes.logoImg}`]: {
-        maxHeight: 20,
+        maxHeight: 70,
         margin: theme.spacing(1, 0),
         [theme.breakpoints.up('md')]: {
-            maxHeight: 25
+            maxHeight: 70
         },
     },
     [`& .${classes.Toolbar}`]: {
@@ -113,6 +113,9 @@ const Root = styled('div')((
         animationName: "$animationFade",
         animationDuration: "1s",
         animationFillMode: "both",
+        "& .logo": {
+            color: "#000"
+        }
     },
     [`& .${classes.link}`]: {
         display: "inline-block",
@@ -160,6 +163,7 @@ const Header = (props) => {
         <Root>
             <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
                 <img src={logo} alt="logo" className={classes.logoImg} />
+                {/* <Typography variant="h6" color={"text.primary"}>mamdouh mohammed</Typography> */}
                 <Divider />
                 <List>
                     {navItems.map((item) => (
@@ -177,7 +181,7 @@ const Header = (props) => {
                             <ListItem disablePadding>
                                 <ListItemButton sx={{ textAlign: 'center' }}>
                                     {item.icon && <ListItemIcon>
-                                        <item.icon className={classes.mainColor}/>
+                                        <item.icon className={classes.mainColor} />
                                     </ListItemIcon>}
                                     <ListItemText primary={item.name} sx={{ color: "#000" }} />
                                 </ListItemButton>
@@ -200,7 +204,8 @@ const Header = (props) => {
                     <Toolbar className={classes.Toolbar}>
                         <Container>
                             <Grid container justifyContent='space-between'>
-                                <Grid display='flex' alignItems='center'>
+                                <Grid display='flex' alignItems='center' className="logo">
+                                    {/* mamdouh mohammed */}
                                     <img src={logo} alt="logo" className={classes.logoImg} />
                                 </Grid>
                                 <Grid>

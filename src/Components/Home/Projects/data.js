@@ -4,6 +4,7 @@ import accurate from '../../../asset/img/projects/accurate.png'
 import esperanto from '../../../asset/img/projects/logo.8cabd947864440eecaa4.webp'
 import accWebsite from '../../../asset/img/projects/accWebsite.jpg'
 import technodera from '../../../asset/img/projects/technodera.png'
+import kooraPlanet from '../../../asset/img/projects/koora-planet.png'
 
 export const data = [
     {
@@ -41,5 +42,11 @@ export const data = [
         name: "technodera",
         img: technodera,
         link:"https://technodera.netlify.app/"
+    },
+    {
+        id: 7,
+        name: "kooora planet",
+        img: kooraPlanet,
+        link:"https://kooora-planet.netlify.app/"
     },
 ]

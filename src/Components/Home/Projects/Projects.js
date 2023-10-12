@@ -86,7 +86,7 @@ const Root = styled('div')((
             left: 0,
             width: "100%",
             height: "100%",
-            objectFit: "contain",
+            objectFit: "scale-down",
             transition: "0.5s",
             pointerEvents: "none",
         }
@@ -118,7 +118,7 @@ export default function Projects() {
                             <Box className={classes.item} key={el.id}>
                                 <Box className={classes.content}>
                                     <img src={el.img} alt='ll' />
-                                    <Typography variant='h4' className={classes.name}>{el.name}</Typography>
+                                    <Typography variant='h5' className={classes.name}>{el.name}</Typography>
                                     <Button variant="contained" size="medium" className={classes.button} onClick={() => openLink(el.link)}>Link site</Button>
                                 </Box>
                             </Box>

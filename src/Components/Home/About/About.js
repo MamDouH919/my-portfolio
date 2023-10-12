@@ -135,9 +135,9 @@ export default function About() {
                                 <Typography variant='h5' className={classes.title}>
                                     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                                 </Typography>
-                                <Box sx={{ display: "flex" }}>
+                                {/* <Box sx={{ display: "flex" }}>
                                     {socials.map((el) => <Box className={classes.iconWrapper} key={el.id}><el.icon fontSize={"16px"} /></Box>)}
-                                </Box>
+                                </Box> */}
                             </Grid>
                             <Grid item xs={12} md={5}>
                                 {about.map((el) =>

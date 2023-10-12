@@ -11,7 +11,7 @@ import contact from '../../../asset/img/contact.svg'
 import { send } from 'emailjs-com';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 // import axios from 'axios'
-
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { enqueueSnackbar } from 'notistack';
 import ButtonLoading from '../../Customs/loading/LoadingButon';
 import SectionWrapper from '../../Layouts/SectionWrapper';
@@ -26,6 +26,7 @@ const classes = {
     avatar: `${PREFIX}-avatar`,
     ListItemText: `${PREFIX}-ListItemText`,
     iconBackground: `${PREFIX}-iconBackground`,
+    iconWrapper: `${PREFIX}-iconWrapper`,
 };
 const Root = styled('div')((
     {
@@ -82,8 +83,8 @@ const Root = styled('div')((
         },
     },
     [`& .${classes.iconBackground}`]: {
-        height: "35px",
-        width: "35px",
+        height: "45px",
+        width: "45px",
         background: theme.palette.primary.light,
         color: "white",
         display: "flex",
@@ -91,6 +92,11 @@ const Root = styled('div')((
         alignItems: "center",
         borderRadius: theme.spacing(1),
         marginRight: theme.spacing(2),
+    },
+    [`& .${classes.iconWrapper}`]: {
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: "column",
+        },
     },
 }))
 export default function ContactForm() {
@@ -238,21 +244,33 @@ export default function ContactForm() {
                                     </Grid>
                                     <Grid item xs={12} textAlign={"center"}>
                                         <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: "8px" }}>
-                                            <Box className={classes.iconBackground}>
-                                                <SmartphoneIcon />
-                                            </Box>
-                                            <Box>
+                                            <a href="tel:+201157143609">
+                                                <Box className={classes.iconBackground}>
+                                                    <SmartphoneIcon fontSize='large' />
+                                                </Box>
+                                            </a>
+                                            <a href="mailto:mamdouh.mohammed919@gmail.com">
+                                                <Box className={classes.iconBackground}>
+                                                    <MailOutlineIcon fontSize='large' />
+                                                </Box>
+                                            </a>
+                                            <a target="_blank" href="https://wa.me/+201157143609"  rel="noreferrer">
+                                                <Box className={classes.iconBackground}>
+                                                    <WhatsAppIcon fontSize='large' />
+                                                </Box>
+                                            </a>
+                                            {/* <Box>
                                                 <Typography variant='h6'>+201157143609</Typography>
-                                            </Box>
+                                            </Box> */}
                                         </Box>
-                                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                        {/* <Box className={classes.iconWrapper} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                                             <Box className={classes.iconBackground}>
                                                 <MailOutlineIcon />
                                             </Box>
                                             <Box>
                                                 <Typography variant='h6'>mamdouh.mohammed919@gmail.com</Typography>
                                             </Box>
-                                        </Box>
+                                        </Box> */}
                                     </Grid>
                                 </Grid>
                             </Grid>

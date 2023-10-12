@@ -1,7 +1,7 @@
 import * as color from "@mui/material/colors";
 import { createTheme } from '@mui/material/styles';
 import config from './config.json'
-
+// 596174
 // A custom theme for this app
 const theme = createTheme({
     palette: {
@@ -16,16 +16,7 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: [
-            '-apple-system',
-            'BlinkMacSystemFont',
-            '"Segoe UI"',
-            'Roboto',
-            '"Helvetica Neue"',
-            'Arial',
-            'sans-serif',
-            '"Apple Color Emoji"',
-            '"Segoe UI Emoji"',
-            '"Segoe UI Symbol"',
+            "Myriad", "Variable", "Concept"
         ].join(','),
     },
     // typography: {

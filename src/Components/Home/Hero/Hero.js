@@ -2,12 +2,13 @@ import { Box, Button, Container, Typography } from '@mui/material'
 import Grid from '@mui/material/Unstable_Grid2'
 import React from 'react'
 import { styled } from '@mui/material/styles';
-import Banner from "../../../asset/img/banner-bg.jpg"
+import Banner from "../../../asset/img/banner2-bg.jpg"
 import Dots from "../../../asset/img/dot.png"
 import BannerImage from "../../../asset/img/home-font.png"
 import cv from "../../../asset/files/Mamdouh-Mohammed.pdf"
 import './Hero.css'
 import { data } from './data';
+import logo from '../../../asset/img/logo.png'
 
 const PREFIX = 'Hero';
 const classes = {
@@ -18,6 +19,8 @@ const classes = {
     imgHero: `${PREFIX}-imgHero`,
     dots: `${PREFIX}-dots`,
     heroTitle: `${PREFIX}-heroTitle`,
+    imgWrapper: `${PREFIX}-imgWrapper`,
+    imgShadow: `${PREFIX}-imgShadow`,
 };
 const Root = styled('div')((
     {
@@ -31,13 +34,29 @@ const Root = styled('div')((
         height: "100%",
         // backgroundColor: "gray",
         background: "linear-gradient(0deg, #9b9797, #2f3863)",
-        // backgroundImage: `url(${Banner})`,
+        backgroundImage: `url(${Banner})`,
         position: "relative",
         width: "100%",
         zIndex: 1,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        "&:before": {
+            content: "''",
+            position: "absolute",
+            zIndex: "-1",
+            top: 0,
+            left: 0,
+            padding: 0,
+            height: "100%",
+            width: "100%",
+            opacity: "0.7",
+            background: "linear-gradient(to right, rgb(0 0 0), rgb(175 175 175), rgb(255 255 255), rgb(169 165 165), rgb(0 0 0))",
+        },
         [theme.breakpoints.down('sm')]: {
             padding: theme.spacing(6, 1),
         },
+
     },
     [`& .${classes.heroTitle}`]: {
         marginBottom: theme.spacing(0),
@@ -68,6 +87,7 @@ const Root = styled('div')((
     },
     [`& .${classes.imgHero}`]: {
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         position: "relative",
         zIndex: 4,
@@ -77,15 +97,32 @@ const Root = styled('div')((
         },
     },
     [`& .${classes.subTitleHero}`]: {
-        color: theme.palette.primary.light,
+        color: theme.palette.primary.main,
         margin: theme.spacing(2, 0),
-        textShadow: "1px 2px 3px #fafafa",
-        // '@media (min-width:600px)': {
-        //     fontSize: '1rem',
-        // },
-        // [theme.breakpoints.up('md')]: {
-        //     fontSize: '0.9rem',
-        // },
+    },
+    [`& .${classes.imgShadow}`]: {
+        background: "#888989",
+        height: "20px",
+        width: "350px",
+        borderRadius: "50%",
+        marginTop: "50px",
+    },
+    [`& .${classes.imgWrapper}`]: {
+        width: "350px",
+        height: "350px",
+        borderRadius: "50%",
+        backgroundImage: `url(${BannerImage})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        [theme.breakpoints.down('md')]: {
+            width: "300px",
+            height: "300px",
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: "250px",
+            height: "250px",
+        },
     },
 }));
 export default function Hero() {
@@ -93,8 +130,11 @@ export default function Hero() {
         <Root>
             <Box className={classes.heroPaper} id="home">
                 <Container>
-                    <Grid container spacing={2} justifyContent='center' alignItems="center">
+                    <Grid container spacing={2} justifyContent='center' alignItems="center" height={"100%"}>
                         <Grid xs={12} md={6} item className={classes.detailsHero}>
+                            <Box>
+                                <img src={logo} alt='logo' width={"55%"} />
+                            </Box>
                             <Typography variant='h6' color={"white"} className={classes.heroTitle}>
                                 Hi I'm Mamdouh Mohammed
                             </Typography>
@@ -106,11 +146,16 @@ export default function Hero() {
                             </a>
                         </Grid>
                         <Grid item xs={12} md={6} className={classes.imgHero}>
-                            <img src={BannerImage} alt='BannerImage' width={"80%"} />
+                            <Box className={classes.imgWrapper}>
+                                {/* <img src={BannerImage} alt='BannerImage' width={"100%"} /> */}
+                            </Box>
+                            <Box className={classes.imgShadow}>
+
+                            </Box>
                         </Grid>
                     </Grid>
                 </Container>
-                <div className={classes.dots}></div>
+                {/* <div className={classes.dots}></div> */}
             </Box>
         </Root>
     )
